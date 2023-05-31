@@ -69,15 +69,14 @@ Bonie_TAB <- tabPanel(
                   choices = unique(earthquake_data_modified$country)),
       sliderInput(inputId = "year_range", 
                   label = "Select a year range:", 
-                  min = earthquake_data_modified, 
+                  min = 1980, 
                   max = 2020, 
                   value = c(1980, 2020))
+    ),
+    mainPanel(
+      
     )
   )
-  
-  
-  
-  
   
   
   
