@@ -20,7 +20,7 @@ server <- function(input, output) {
 
   # ADD PART THAT CHANGES DATAFRAME TO ONLY HOLD WANTED MAGNITUDES
   world_data_shape <- map_data("world")
-  world_earthquake_table <- left_join(world_data_shape, earthquake_data_modified, by = c("long" = "longitude", "lat" = "latitude"))
+
 
   output$Nikola_Plot <- renderPlotly({
 
@@ -37,8 +37,6 @@ server <- function(input, output) {
                x = "Longitude",
                y = "Latitude"
     )
-
-
     return(Earthquake_plot)
   })
 

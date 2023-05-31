@@ -14,10 +14,11 @@ Viz_theme <- bs_theme(
 # Update BootSwatch Theme
 Viz_theme <- bs_theme_update(Viz_theme, bootswatch = "journal")
 
+Title <- h1("Earthquake Data Work", align = "center")
 # WE WILL ADD OUR INDIVIDUAL UI STUFF HERE
 
 # NIKOLA_SECTION
-Nikola_Plot_Description <- p("HELLLLLLLOOOOOOOOOOOOOOOOOOOOOOO")
+Nikola_Plot_Description <- p("WORLD MAP OF MAGINTUDES AROUND THE EARTH")
 
 Nikola_Plot <- mainPanel(
   # Make plot interactive
@@ -41,6 +42,8 @@ NIKOLA_TAB <- tabPanel("Data Viz",
 
 # MAIN UI TO CONNECT EVERYTHING
 ui <- navbarPage(
+  theme = Viz_theme,
+  titlePanel(Title),
   NIKOLA_TAB
 
 )
