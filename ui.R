@@ -57,7 +57,23 @@ SUMMARY_Tab <- tabPanel("Data Summary",
 )
 
 INTRO_Tab <- tabPanel("INTRODUCTION",
-                      p("hello")
+                      h2("Overview"),
+                      p("This app explores the fascinating realm of worldwide earthquakes, aiming to uncover patterns, extract insights, and gain a deeper understanding of these seismic events that shape our planet. By analyzing a dataset spanning multiple regions and time periods, we embark on a journey to explore the nature of earthquakes and their impact on our world."),
+                      
+                      h2("Main Questions"),
+                      p("In the project, our main purpose is to determine the countries with the highest accuracy of estimating intensities of earthquakes, the continents or areas with the highest probabilities of getting tsunamis due to earthquakes, and the continents with the most intense magnitudes. These questions are crucial because understanding these patterns is crucial for disaster preparedness and risk assessment. To make the results more intuitive, we’ve built 3 interactive visualizations. "),
+                      
+                      h2("Data"),
+                      p("The dataset employed in this project consists of a comprehensive collection of worldwide earthquakes. The data was published by Chirag Chauhan, an interventional cardiologist at Denver Heart and Rose Medical Center. The data was collected through seismic sensors near/at the locations of earthquakes from all around the world. The data is a massive collaboration between seismic stations around the world by having their data gathered and shared in one location.
+                        It provides an extensive record of seismic events across different regions and time periods. The dataset's appropriateness stems from its relevance to the study of earthquakes, enabling us to gain valuable insights into their characteristics, patterns, and impact on a global scale."),
+                      
+                      h4("Data Link"),
+                      p("https://www.kaggle.com/datasets/warcoder/earthquake-dataset"),
+                      
+                      h2("Ethical Questions and Limitations"),
+                      p("The earthquake dataset from Kaggle has the following problems and limitations such as limited coverage, incomplete data, and potential data quality issues. There are some features missing in the dataset, and the dataset only includes the earthquakes that happened from 2001 to 2023. This implies the data can not represent the earthquakes that happen in all regions. Furthermore, this dataset is collected from multiple sources, which may be collected through different methods and standards. Thus, the data may lead to inconsistencies and issues. "),
+                      p("One another main limitation is that the accuracy of earthquake data can be affected by the changes of monitoring technology and techniques over time. As the newest methods for detecting and measuring earthquakes are developed, the historical data may become less accurate and reliable compared to the more recent data."),
+                      p("To minimize the impact of these restrictions, we cleaned up the dataset before doing the visualizations. All the NA values are removed to ensure the accuracy of the results to the utmost extent. "),
 )
 
 # BONIE_SECTION
