@@ -22,7 +22,9 @@ Title <- h1("Earthquake Data Work", align = "center")
 # WE WILL ADD OUR INDIVIDUAL UI STUFF HERE
 
 # NIKOLA_SECTION
-Nikola_Plot_Description <- p("WORLD MAP OF MAGINTUDES AROUND THE EARTH")
+Nikola_Plot_Description <- p("This is a world map of all magnitudes of earthquakes and their location. It helps people understand
+                              where a majority of earthquakes take place and where certain magnitudes are more commen then others. This can help dispel
+                              fear related to earthquakes while keeping people informed of the dangers.")
 
 Nikola_Widget <- sliderInput(inputId = "Variables",
                              label = h3("Magnitude Range"),
@@ -42,9 +44,7 @@ NIKOLA_TAB <- tabPanel("Magnitude VIZ",
                          sidebarPanel(
                            # ADD WIDGET HERE
                            Nikola_Widget,
-
                            Nikola_Plot_Description
-                           # can add more
                          ),
                          Nikola_Plot
                        )
