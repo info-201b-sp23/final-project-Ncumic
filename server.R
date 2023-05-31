@@ -39,7 +39,40 @@ server <- function(input, output) {
     )
     return(Earthquake_plot)
   })
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #Bonie SECTION
+  
+  
+  
+  
 
 
 }

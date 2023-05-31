@@ -55,6 +55,19 @@ NIKOLA_TAB <- tabPanel("Data Viz",
 # BONIE_SECTION
 
 Bonie_TAB <- tabPanel(
+  sidebarlayout(
+    
+  )
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 )
 # MAIN UI TO CONNECT EVERYTHING
