@@ -56,18 +56,9 @@ SUMMARY_Tab <- tabPanel("Data Summary",
 
 )
 
-
-
-
-
-
-
-
-
-
-
-
-
+INTRO_Tab <- tabPanel("INTRODUCTION",
+                      p("hello")
+)
 
 # BONIE_SECTION
 
@@ -86,18 +77,14 @@ Bonie_TAB <- tabPanel(
       plotlyOutput("BonieChart")
     )
   )
-  
-  
-  
-  
-  
-  
+
   
 )
 # MAIN UI TO CONNECT EVERYTHING
 ui <- navbarPage(
   theme = Viz_theme,
   titlePanel(Title),
+  INTRO_Tab,
   NIKOLA_TAB,
   Bonie_TAB,
   SUMMARY_Tab
