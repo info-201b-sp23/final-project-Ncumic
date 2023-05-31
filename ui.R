@@ -29,7 +29,7 @@ Nikola_Plot_Description <- p("This is a world map of all magnitudes of earthquak
 Nikola_Widget <- sliderInput(inputId = "Variables",
                              label = h3("Magnitude Range"),
                              min = 6,
-                             max = 10,
+                             max = 9.5,
                              step = 0.1,
                              value = c(6,6.5)
 )
@@ -103,7 +103,7 @@ Bonie_TAB <- tabPanel(
 ui <- navbarPage(
   theme = Viz_theme,
   titlePanel(Title),
-  SUMMARY_Tab,
   NIKOLA_TAB,
-  Bonie_TAB
+  Bonie_TAB,
+  SUMMARY_Tab
 )
