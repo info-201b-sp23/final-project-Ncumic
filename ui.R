@@ -79,7 +79,7 @@ INTRO_Tab <- tabPanel("INTRODUCTION",
 # BONIE_SECTION
 
 Bonie_TAB <- tabPanel(
-  "Bonie's Visual",
+  "Accuracy VIZ",
   sidebarLayout(
     sidebarPanel(
       selectInput(inputId = "country1", 
