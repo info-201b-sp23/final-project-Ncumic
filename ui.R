@@ -41,7 +41,11 @@ NIKOLA_TAB <- tabPanel("Data Viz",
                        )
 )
 
+summary_Tab <- tabPanel("Data Summary",
+                        p("hello")
 
+
+)
 
 
 
@@ -90,6 +94,7 @@ Bonie_TAB <- tabPanel(
 ui <- navbarPage(
   theme = Viz_theme,
   titlePanel(Title),
+  summary_Tab,
   NIKOLA_TAB,
   Bonie_TAB
 )
