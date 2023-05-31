@@ -59,6 +59,7 @@ NIKOLA_TAB <- tabPanel("Data Viz",
 # BONIE_SECTION
 
 Bonie_TAB <- tabPanel(
+  "Bonie's Visual",
   sidebarLayout(
     sidebarPanel(
       selectInput(inputId = "country1", 
@@ -69,9 +70,9 @@ Bonie_TAB <- tabPanel(
                   choices = unique(earthquake_data_modified$country)),
       sliderInput(inputId = "year_range", 
                   label = "Select a year range:", 
-                  min = 1980, 
+                  min = 2000, 
                   max = 2020, 
-                  value = c(1980, 2020))
+                  value = c(2000, 2020))
     ),
     mainPanel(
       
@@ -89,6 +90,6 @@ Bonie_TAB <- tabPanel(
 ui <- navbarPage(
   theme = Viz_theme,
   titlePanel(Title),
-  NIKOLA_TAB
-
+  NIKOLA_TAB,
+  Bonie_TAB
 )
