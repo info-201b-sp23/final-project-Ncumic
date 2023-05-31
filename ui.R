@@ -40,6 +40,23 @@ NIKOLA_TAB <- tabPanel("Data Viz",
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# BONIE_SECTION
+
+Bonie_TAB <- tabPanel(
+  
+)
 # MAIN UI TO CONNECT EVERYTHING
 ui <- navbarPage(
   theme = Viz_theme,
