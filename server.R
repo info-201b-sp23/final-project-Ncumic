@@ -71,7 +71,7 @@ server <- function(input, output) {
   #Bonie SECTION
   
   
-  
+  earthquake_data_modified$Year <- as.integer(format(as.POSIXct(earthquake_data_modified$date, format = "%d-%m-%Y %H:%M"), "%Y"))
   
 
 

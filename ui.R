@@ -5,6 +5,10 @@ library(dplyr)
 library(bslib)
 library(rsconnect)
 
+earthquake_data <- read.csv('https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv')
+earthquake_data_modified <- select(earthquake_data, -c("title","net", "nst", "dmin", "gap", "magType", "depth"))
+
+earthquake_data_modified$Year <- as.integer(format(as.POSIXct(earthquake_data_modified$date, format = "%d-%m-%Y %H:%M"), "%Y"))
 # DEFAULT THEME WE CAN USE
 Viz_theme <- bs_theme(
   bg = "#0b3d91", # background color
@@ -55,8 +59,20 @@ NIKOLA_TAB <- tabPanel("Data Viz",
 # BONIE_SECTION
 
 Bonie_TAB <- tabPanel(
-  sidebarlayout(
-    
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(inputId = "country1", 
+                  label = "Select the first country:", 
+                  choices = unique(earthquake_data_modified$country)),
+      selectInput(inputId = "country2", 
+                  label = "Select the second country:", 
+                  choices = unique(earthquake_data_modified$country)),
+      sliderInput(inputId = "year_range", 
+                  label = "Select a year range:", 
+                  min = earthquake_data_modified, 
+                  max = 2020, 
+                  value = c(1980, 2020))
+    )
   )
   
   
