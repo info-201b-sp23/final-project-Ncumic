@@ -24,10 +24,12 @@ Title <- h1("Earthquake Data Work", align = "center")
 # NIKOLA_SECTION
 Nikola_Plot_Description <- p("WORLD MAP OF MAGINTUDES AROUND THE EARTH")
 
-Nikola_Widget <- radioButtons(inputId = "Variables",
-                              label = h3("Magnitude Range"),
-                              choices = list("5-6" = 5, "6-7" = 6, "7-8" = 7, "8-9" = 8, "9-10" = 9, "All" = 10),
-                              selected = 10)
+Nikola_Widget <- sliderInput(inputId = "Variables",
+                             label = h3("Magnitude Range"),
+                             min = 5,
+                             max = 10,
+                             value = c(5, 6)
+)
 
 Nikola_Plot <- mainPanel(
   # Make plot interactive

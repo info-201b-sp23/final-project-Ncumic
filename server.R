@@ -24,19 +24,9 @@ server <- function(input, output) {
 
   output$Nikola_Plot <- renderPlotly({
 
-    if(input$Variables == 5) {
-      earthquake_data_modified <- earthquake_data_modified %>% filter(magnitude >= 5 & magnitude <= 6)
-    } else if (input$Variables == 6) {
-      earthquake_data_modified <- earthquake_data_modified %>% filter(magnitude >= 6 & magnitude <= 7)
-    } else if (input$Variables == 7) {
-      earthquake_data_modified <- earthquake_data_modified %>% filter(magnitude >= 7 & magnitude <= 8)
-    } else if (input$Variables == 8) {
-      earthquake_data_modified <- earthquake_data_modified %>% filter(magnitude >= 8 & magnitude <= 9)
-    } else if (input$Variables == 9) {
-      earthquake_data_modified <- earthquake_data_modified %>% filter(magnitude >= 9 & magnitude <= 10)
-    } else {
-      earthquake_data_modified <- earthquake_data_modified
-    }
+
+    earthquake_data_modified <- earthquake_data_modified %>% filter(magnitude >= input$Variables[1] & magnitude <= input$Variables[2])
+
 
     Earthquake_plot <- ggplot(data = world_data_shape) +
       geom_polygon(aes(x = long,
