@@ -74,7 +74,12 @@ Bonie_TAB <- tabPanel(
                   choices = unique(CountryAccuracy$country))
     ),
     mainPanel(
-      plotlyOutput("BonieChart")
+      plotlyOutput("BonieChart"),
+      br(),
+      HTML("<h5><strong>Chart Description: </strong></h5>"),
+      p("This interactive chart displays the accuracy of the estimation made by different countries on the earthquake magnitude from 2001 to 2020"),
+      p("It shows patterns including variations in accuracy among countries, shifts in accuracy over time, and individual country trends. Specific 
+        details of the chart would provide more insights into these patterns.")
     )
   )
 
