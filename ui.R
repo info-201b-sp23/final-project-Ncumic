@@ -47,7 +47,7 @@ NIKOLA_TAB <- tabPanel("Magnitude VIZ",
                        )
 )
 
-SUMMMARY_Tab <- tabPanel("Data Summary",
+SUMMARY_Tab <- tabPanel("Data Summary",
                         p("hello")
 
 
