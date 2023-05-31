@@ -26,9 +26,10 @@ Nikola_Plot_Description <- p("WORLD MAP OF MAGINTUDES AROUND THE EARTH")
 
 Nikola_Widget <- sliderInput(inputId = "Variables",
                              label = h3("Magnitude Range"),
-                             min = 5,
+                             min = 6,
                              max = 10,
-                             value = c(5, 6)
+                             step = 0.1,
+                             value = c(6,6.5)
 )
 
 Nikola_Plot <- mainPanel(
