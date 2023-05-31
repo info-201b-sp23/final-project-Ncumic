@@ -74,8 +74,17 @@ server <- function(input, output) {
   
   #Bonie SECTION
   
-  
-  earthquake_data_modified$Year <- as.integer(format(as.POSIXct(earthquake_data_modified$date, format = "%d-%m-%Y %H:%M"), "%Y"))
+  output$BonieChart <- renderPlotly({
+    filtered_data <- CountryAccuracy %>% 
+      filter(country %in% c(input$country1, input$country2))
+    
+    plot <- ggplot(filtered_data, aes(x = Year, y = mean_accuracy, color = country)) +
+      geom_smooth(se=FALSE) +
+      labs(x = "Year", y = "Mean Accuracy", title = "Comparison of Accuracy of different countries") +
+      theme(plot.title = element_text(hjust = 0.5))
+    
+    plotly::ggplotly(plot)
+  })
   
 
 

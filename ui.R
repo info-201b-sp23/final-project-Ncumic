@@ -7,7 +7,7 @@ library(rsconnect)
 
 earthquake_data <- read.csv('https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv')
 earthquake_data_modified <- select(earthquake_data, -c("title","net", "nst", "dmin", "gap", "magType", "depth"))
-
+source("Summary.R")
 earthquake_data_modified$Year <- as.integer(format(as.POSIXct(earthquake_data_modified$date, format = "%d-%m-%Y %H:%M"), "%Y"))
 # DEFAULT THEME WE CAN USE
 Viz_theme <- bs_theme(
@@ -77,18 +77,13 @@ Bonie_TAB <- tabPanel(
     sidebarPanel(
       selectInput(inputId = "country1", 
                   label = "Select the first country:", 
-                  choices = unique(earthquake_data_modified$country)),
+                  choices = unique(CountryAccuracy$country)),
       selectInput(inputId = "country2", 
                   label = "Select the second country:", 
-                  choices = unique(earthquake_data_modified$country)),
-      sliderInput(inputId = "year_range", 
-                  label = "Select a year range:", 
-                  min = 2000, 
-                  max = 2020, 
-                  value = c(2000, 2020))
+                  choices = unique(CountryAccuracy$country))
     ),
     mainPanel(
-      
+      plotlyOutput("BonieChart")
     )
   )
   

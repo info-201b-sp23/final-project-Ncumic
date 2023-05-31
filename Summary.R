@@ -45,18 +45,20 @@ country_max_magnitude <- earthquake_data_modified %>%
 
 country_max_magnitude
 
-#5) Which Country had the most accurate estimated of intensities?
-
-earthquake_data_Accuracy <- select(earthquake_data, c("magnitude", "mmi", "country"))
+#Needed for ui.R
+earthquake_data_Accuracy <- select(earthquake_data_modified, c("magnitude", "mmi", "country", "Year"))
 earthquake_data_Accuracy <- earthquake_data_Accuracy[earthquake_data_Accuracy$country != "", , drop = FALSE]
+earthquake_data_Accuracy <- earthquake_data_Accuracy %>% group_by(Year)
+
+
 earthquake_data_Accuracy$accuracy <- (1 - abs(earthquake_data_Accuracy$mmi - earthquake_data_Accuracy$magnitude) / earthquake_data_Accuracy$magnitude) * 100
 
 CountryAccuracy <- earthquake_data_Accuracy %>%
+  group_by(country, Year) %>%
+  summarize(mean_accuracy = mean(accuracy))  %>%
   group_by(country) %>%
-  summarize(avg_accuracy = mean(accuracy)) %>%
-  arrange(desc(avg_accuracy))
-
-CountryMostAccurate <- CountryAccuracy %>% head(1) %>% pull(country)
+  filter(n() >= 3) %>%
+  ungroup()
 
 # TURN INTO A LIST OF VALUES
 summary_info <- list()
