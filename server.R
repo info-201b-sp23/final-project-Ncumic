@@ -79,6 +79,7 @@ server <- function(input, output) {
       filter(country %in% c(input$country1, input$country2))
     
     plot <- ggplot(filtered_data, aes(x = Year, y = mean_accuracy, color = country)) +
+      # geom_line() +
       geom_smooth(se=FALSE) +
       labs(x = "Year", y = "Mean Accuracy", title = "Comparison of Accuracy of different countries") +
       theme(plot.title = element_text(hjust = 0.5))

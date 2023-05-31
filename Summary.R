@@ -57,7 +57,7 @@ CountryAccuracy <- earthquake_data_Accuracy %>%
   group_by(country, Year) %>%
   summarize(mean_accuracy = mean(accuracy))  %>%
   group_by(country) %>%
-  filter(n() >= 3) %>%
+  filter(n() >= 8) %>%
   ungroup()
 
 # TURN INTO A LIST OF VALUES
