@@ -34,7 +34,7 @@ Nikola_Plot <- mainPanel(
   plotlyOutput(outputId = "Nikola_Plot")
 )
 
-NIKOLA_TAB <- tabPanel("Data Viz",
+NIKOLA_TAB <- tabPanel("Magnitude VIZ",
                        sidebarLayout(
                          sidebarPanel(
                            # ADD WIDGET HERE
@@ -47,7 +47,7 @@ NIKOLA_TAB <- tabPanel("Data Viz",
                        )
 )
 
-summary_Tab <- tabPanel("Data Summary",
+SUMMMARY_Tab <- tabPanel("Data Summary",
                         p("hello")
 
 
@@ -100,7 +100,7 @@ Bonie_TAB <- tabPanel(
 ui <- navbarPage(
   theme = Viz_theme,
   titlePanel(Title),
-  summary_Tab,
+  SUMMARY_Tab,
   NIKOLA_TAB,
   Bonie_TAB
 )
