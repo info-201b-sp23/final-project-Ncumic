@@ -11,6 +11,8 @@ earthquake_data <- read.csv('https://raw.githubusercontent.com/info-201b-sp23/ex
 earthquake_data_modified <- select(earthquake_data, -c("title","net", "nst", "dmin", "gap", "magType", "depth"))
 
 # ADD SUMMARY VALUES HERE
+source("Summary.R")
+
 
 
 server <- function(input, output) {
