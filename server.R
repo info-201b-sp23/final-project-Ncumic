@@ -5,6 +5,7 @@ library(plotly)
 library(dplyr)
 library(bslib)
 library(rsconnect)
+library(maps)
 
 # UPDATED TABLE CODE
 earthquake_data <- read.csv('https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv')

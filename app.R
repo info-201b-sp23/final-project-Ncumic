@@ -4,6 +4,7 @@ library(plotly)
 library(dplyr)
 library(bslib)
 library(rsconnect)
+library(maps)
 source("ui.R")
 source("server.R")
 
