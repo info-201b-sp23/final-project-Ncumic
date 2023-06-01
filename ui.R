@@ -4,6 +4,7 @@ library(plotly)
 library(dplyr)
 library(bslib)
 library(rsconnect)
+library(maps)
 
 earthquake_data <- read.csv('https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv')
 earthquake_data_modified <- select(earthquake_data, -c("title","net", "nst", "dmin", "gap", "magType", "depth"))
@@ -101,14 +102,43 @@ Bonie_TAB <- tabPanel(
 )
 
 # BRIAN SECTION
+eq_df <- read.csv("https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv", 
+                  stringsAsFactors = FALSE)
 
-BRIAN_TAB <- tabPanel(
-
-
-
+# Define UI
+ui <- fluidPage(
+  titlePanel("Earthquakes and Tsunamis"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("country", "Select a Country:", choices = unique(eq_df$country))
+    ),
+    mainPanel(
+      plotOutput("plot")
+    )
+  )
 )
 
-
+# Define server
+server <- function(input, output) {
+  output$plot <- renderPlot({
+    world_shape <- map_data("world")
+    
+    filtered_eq_df <- filter(eq_df, country == input$country)
+    
+    eq_mapping_df <- left_join(world_shape, filtered_eq_df, by = c("long" = "longitude", "lat" = "latitude"))
+    
+    world_plot <- ggplot(data = world_shape) +
+      geom_polygon(aes(x = long, y = lat, group = group)) +
+      geom_point(data = filter(filtered_eq_df, tsunami == 0), aes(x = longitude, y = latitude, color = "Non-Tsunami"), size = 2) +
+      geom_point(data = filter(filtered_eq_df, tsunami == 1), aes(x = longitude, y = latitude, color = "Tsunami"), size = 2) +
+      labs(title = paste("Earthquakes That Caused Tsunamis in", input$country), x = "Longitude", y = "Latitude") +
+      scale_color_manual(values = c("Non-Tsunami" = "blue", "Tsunami" = "red"), 
+                         labels = c("Non-Tsunami", "Tsunami"),
+                         name = "Tsunami")
+    
+    print(world_plot)
+  })
+}
 
 # MAIN UI TO CONNECT EVERYTHING
 ui <- navbarPage(
