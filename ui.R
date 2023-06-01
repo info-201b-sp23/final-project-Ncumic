@@ -117,7 +117,7 @@ Bonie_TAB <- tabPanel(
 eq_df <- read.csv("https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv",
                   stringsAsFactors = FALSE)
 BRIAN_TAB <- tabPanel(
-  titlePanel("Tsunamis VIZ"),
+  "Tsunamis VIZ",
   sidebarLayout(
     sidebarPanel(
       selectInput("country", "Select a Country:", choices = unique(eq_df$country))
