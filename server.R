@@ -61,6 +61,26 @@ server <- function(input, output) {
   })
 
   # BRIAN SECTION
+  eq_df <- read.csv("https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv",
+                    stringsAsFactors = FALSE)
+  output$plot <- renderPlotly({
+    world_shape <- map_data("world")
+
+    filtered_eq_df <- filter(eq_df, country == input$country)
+
+    eq_mapping_df <- left_join(world_shape, filtered_eq_df, by = c("long" = "longitude", "lat" = "latitude"))
+
+    world_plot <- ggplot(data = world_shape) +
+      geom_polygon(aes(x = long, y = lat, group = group)) +
+      geom_point(data = filter(filtered_eq_df, tsunami == 0), aes(x = longitude, y = latitude, color = "Non-Tsunami"), size = 2) +
+      geom_point(data = filter(filtered_eq_df, tsunami == 1), aes(x = longitude, y = latitude, color = "Tsunami"), size = 2) +
+      labs(title = paste("Earthquakes That Caused Tsunamis in", input$country), x = "Longitude", y = "Latitude") +
+      scale_color_manual(values = c("Non-Tsunami" = "blue", "Tsunami" = "red"),
+                         labels = c("Non-Tsunami", "Tsunami"),
+                         name = "Tsunami")
+
+    return (world_plot)
+  })
 
 
   
