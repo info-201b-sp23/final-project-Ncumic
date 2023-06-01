@@ -98,9 +98,18 @@ Bonie_TAB <- tabPanel(
         details of the chart would provide more insights into these patterns.")
     )
   )
-
-  
 )
+
+# BRIAN SECTION
+
+BRIAN_TAB <- tabPanel(
+
+
+
+)
+
+
+
 # MAIN UI TO CONNECT EVERYTHING
 ui <- navbarPage(
   theme = Viz_theme,

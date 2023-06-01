@@ -19,7 +19,6 @@ source("Summary.R")
 server <- function(input, output) {
   # NIKOLA SECTION
 
-  # ADD PART THAT CHANGES DATAFRAME TO ONLY HOLD WANTED MAGNITUDES
   world_data_shape <- map_data("world")
 
 
@@ -44,34 +43,7 @@ server <- function(input, output) {
     )
     return(Earthquake_plot)
   })
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   #Bonie SECTION
   
@@ -87,6 +59,10 @@ server <- function(input, output) {
     
     plotly::ggplotly(plot)
   })
+
+  # BRIAN SECTION
+
+
   
 
 
