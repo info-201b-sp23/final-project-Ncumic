@@ -116,11 +116,15 @@ Bonie_TAB <- tabPanel(
 # BRIAN SECTION
 eq_df <- read.csv("https://raw.githubusercontent.com/info-201b-sp23/exploratory-analysis-Ncumic/main/earthquake_data.csv",
                   stringsAsFactors = FALSE)
+Brian_Plot_Description <- p("This is a world map of all earthquakes around the world, what this Vizualization does is
+inform people of which of these earthquakes caused water related accidents like tsumanis. This helps people understand were these forms of
+earthquakes happen and where certain measures should be taken to lessen the damage")
 BRIAN_TAB <- tabPanel(
   "Tsunamis VIZ",
   sidebarLayout(
     sidebarPanel(
-      selectInput("country", "Select a Country:", choices = unique(eq_df$country))
+      selectInput("country", "Select a Country:", choices = unique(eq_df$country)),
+      Brian_Plot_Description
     ),
     mainPanel(
       plotlyOutput("plot")
