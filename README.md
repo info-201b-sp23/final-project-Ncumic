@@ -3,7 +3,7 @@
 
 Authors: Nikola Cumic, Brian Chiang, Bonie Wang, Xinying Wang
 
-**Link: https://ncumic.shinyapps.io/final-project-ncumic/**
+**Link: [https://ncumic.shinyapps.io/final-project-ncumic/](https://cch0223.shinyapps.io/final-project-BrianChiang3999/)**
 
 Please create the necessary files for your multi-page Shiny app in this GitHub repository. Consult the Canvas assignment for more details. Be sure to publish your app on Shinyapps.io.
 
